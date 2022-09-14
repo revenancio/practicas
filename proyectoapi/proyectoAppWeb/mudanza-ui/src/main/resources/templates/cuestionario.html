@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaft.org">
+
+<head>
+    <title> cuestionario</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="bg-image" style="background-image: url('https://th.bing.com/th/id/R.c514d222e838af60cf8a42ac6b3fe0c5?rik=f2DSAK6oHPPOMA&riu=http%3a%2f%2fsatiro.es%2fwp-content%2fuploads%2f2015%2f06%2fIMG_0973.jpg&ehk=PsR%2bj%2fZ7HZ3FWne4pyAa%2bcVBA%2bpf6rXrBdAjor5ztiU%3d&risl=&pid=ImgRaw&r=0') 
+          ;background-size: cover;">
+        <p><a href="/" class="btn btn-primary btn-sm-mt-2">regresar al menu</a></p>
+        <p><a href="/bibliografia" class="btn btn-danger btn-sm-mt-2"> ir a bibliografia</a></p>
+        <p><a href="/showAddPreguntas" class="btn btn-success btn-sm-mt-2"> agregar preguntas</a></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>cuestionario sobre RULA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="preguntas: ${preguntas}">
+                    <td>
+                        <div class="container">
+                            <div class="badge bg-success fw-bold fs-5 text-wrap w-100">
+                                <label for="textId">preguntas:</label>
+                                <span th:text="${preguntas.id}"></span>
+                            </div>
+                            <div class="bg-info p-2 bg-opacity-50 fw-bold">
+                                <span th:text="${preguntas.pregunta}"></span>
+                            </div>
+                            <div class="bg-info p-2 bg-opacity-50 fw-bold">
+                                <span th:text="${preguntas.respuesta}"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a th:href="@{/showUpdatepreguntas/{id}(id=${preguntas.id})}"
+                            class="btn btn-primary">Modificar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+
+</html>

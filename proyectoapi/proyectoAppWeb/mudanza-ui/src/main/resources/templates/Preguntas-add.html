@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear Preguntass</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"></script>     
+</head>
+<body>
+    <div class="container">
+        <h1>Administración de Preguntass</h1>
+        <hr>
+        <h2>Crear Preguntas</h2>
+
+        <form action="#" th:action="@{/addPreguntas}" th:object="${preguntas}" method="post">
+           
+
+            <br>
+
+            <label for="textpregunta">pregunta</label>
+            <input type="text" th:field="*{pregunta}" id="textpregunta" placeholder="Ingrese descripción">
+            <span th:if="${#fields.hasErrors('pregunta')}" th:errors="*{pregunta}"></span>
+
+            <br>
+
+            <label for="textrespuesta">respuesta</label>
+            <input type="text" th:field="*{respuesta}" id="textrespuesta" placeholder="respuesta">
+            <span th:if="${#fields.hasErrors('respuesta')}" th:errors="*{respuesta}"></span>
+
+            <br>
+
+
+            <hr>
+
+            <input type="submit" class="btn btn-info col-2" value="Grabar Preguntas">
+        </form>
+    </div>
+</body>
+</html>
