@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Crear Preguntass</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
     <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"></script>     
+    <script src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
+    <div class="conta">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #085790;">
+            <a class="navbar-brand" href="/">Menu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/preguntas">Preguntas <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/bibliografia">Bibliografia</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div class="container">
+
+
+
         <h1>Administración de Preguntas</h1>
         <hr>
         <h2>Modificar Preguntas</h2>
 
-        <form action="#" th:action="@{/updatepreguntas/{id}(id=${preguntas.id})}" th:object="${preguntas}" method="post">
+        <form action="#" th:action="@{/updatepreguntas/{id}(id=${preguntas.id})}" th:object="${preguntas}"
+            method="post">
 
             <label for="textpregunta">pregunta</label>
             <input type="text" th:field="*{pregunta}" id="textpregunta" placeholder="Ingrese pregunta">
@@ -26,11 +51,12 @@
 
             <br>
 
-            
+
             <input type="submit" class="btn btn-info col-2" value="Modificar Preguntas">
         </form>
         <br>
         <a th:href="@{/preguntas}" class="btn btn-secondary col-3">Volver a la lista de Preguntass</a>
     </div>
 </body>
+
 </html>
